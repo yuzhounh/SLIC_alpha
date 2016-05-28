@@ -1,0 +1,22 @@
+SLIC: a whole brain parcellation toolbox
+Copyright (C) 2016 Jing Wang
+
+The SLIC toolbox contains five whole brain parcellation approaches that 
+operates on resting-state fMRI data. Three of them are reproduced from the 
+Ncut-based approaches in (Craddock et al., 2012, HBM) and (Shen et al., 
+2013, Neuroimage). The remaining two are the mean SLIC and two-level SLIC 
+approaches that integrate Ncut and SLIC. The release includes the Matlab 
+scripts and the whole brain atlases. A paper on this project is under 
+submission.
+
+Usage:
+The current toolbox contains the major source codes, which should be
+customized before running on a specific fMRI dataset. Interested readers 
+can refer to parc_main.m for the processing procedure. 
+
+Contact information:
+Jing Wang
+wangjing0@seu.edu.cn
+yuzhounh@163.com
+
+2016-5-28 20:16:23
