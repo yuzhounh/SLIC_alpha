@@ -9,7 +9,7 @@ approaches that integrate Ncut and SLIC. The release includes the Matlab
 scripts and the whole brain atlases. A paper on this project is under 
 submission.
 
-This project is also shared on NITRC (https://www.nitrc.org/projects/slic/). 
+This toolbox is also shared on NITRC (https://www.nitrc.org/projects/slic/). 
 
 Usage:
 The current toolbox contains the major source codes, which should be
