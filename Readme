@@ -1,24 +1,46 @@
-SLIC: a whole brain parcellation toolbox
-Copyright (C) 2016 Jing Wang
+# SLIC Alpha
 
-The SLIC toolbox contains five whole brain parcellation approaches that 
-operates on resting-state fMRI data. Three of them are reproduced from the 
-Ncut-based approaches in (Craddock et al., 2012, HBM) and (Shen et al., 
-2013, Neuroimage). The remaining two are the mean SLIC and two-level SLIC 
-approaches that integrate Ncut and SLIC. The release includes the Matlab 
-scripts and the whole brain atlases. A paper on this project is under 
-submission.
+MATLAB source code for five whole-brain parcellation approaches operating on resting-state fMRI data.
 
-This toolbox is also shared on NITRC (https://www.nitrc.org/projects/slic/). 
+[GPL-3.0 license](LICENSE)
 
-Usage:
-The current toolbox contains the major source codes, which should be
-customized before running on a specific fMRI dataset. Interested readers 
-can refer to parc_main.m for the processing procedure. 
+The methods include three normalized-cut-based approaches and two approaches combining normalized cuts with SLIC. The original documentation describes this repository as source code to customize for a specific dataset.
 
-Contact information:
-Jing Wang
-wangjing0@seu.edu.cn
-yuzhounh@163.com
+## Getting Started
 
-2016-5-28 20:16:23
+Review [parc_main.m](parc_main.m) as the processing outline before running an experiment.
+
+- Prepare MATLAB with Parallel Computing Toolbox and the NIfTI functions `load_untouch_nii` and `save_untouch_nii` on the path.
+- Supply preprocessed images as `data/subNNNNN.nii`, matching the subject identifiers in `sSub.mat`.
+- Review the included parameter files and gray-matter mask for your dataset.
+- Adapt the hardcoded subject count, cluster-count loop, group repetitions, and parallel-worker settings in `parc_main.m`.
+
+## Known Incomplete Steps
+
+The final evaluation section of [parc_main.m](parc_main.m) calls `eval_dice_MSC_sub` and `eval_dice_SLIC_sub`, but neither function is present in the tracked repository. Resolve those dependencies before treating the complete script as runnable.
+
+The script is therefore a starting point for a configured research workflow, rather than a verified one-command demo.
+
+## Repository Structure
+
+- [parc_main.m](parc_main.m): processing and evaluation outline.
+- [parc_preprocess.m](parc_preprocess.m): subject-image preparation.
+- [SLIC.m](SLIC.m), [SLIC_mean_parc.m](SLIC_mean_parc.m), and [SLIC_twolevel_parc.m](SLIC_twolevel_parc.m): SLIC-related methods.
+- [MSC_mean_parc.m](MSC_mean_parc.m), [MSC_twolevel_parc.m](MSC_twolevel_parc.m), and [MKSC_parc.m](MKSC_parc.m): other parcellation methods.
+- [sSub.mat](sSub.mat), [sK.mat](sK.mat), and `randset_*.mat`: bundled experiment configuration.
+- [graymatter.nii](graymatter.nii) and [T1_4mm.nii](T1_4mm.nii): image resources.
+
+## Related Projects
+
+- [SLIC on NITRC](https://www.nitrc.org/projects/slic/): project link preserved from the original documentation.
+
+## License
+
+See the existing [GNU General Public License, version 3](LICENSE). Retain the notices in the source files and in bundled third-party material.
+
+## Contact
+
+Jing Wang · [wangjing0@seu.edu.cn](mailto:wangjing0@seu.edu.cn) · [yuzhounh@163.com](mailto:yuzhounh@163.com)
+
+Copyright (C) 2016 Jing Wang.
+
